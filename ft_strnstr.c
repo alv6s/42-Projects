@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:54:40 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/20 19:41:45 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:44:34 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (*little == '\0')
 		return ((char *)big);
 	if (big == '\0' && len == 0)
-		return (NULL);
+		return (0);
 	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
