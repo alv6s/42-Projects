@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 17:40:03 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/21 18:19:59 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/22 12:02:54 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len_s;
 	char			*new_s;
 	unsigned int	i;
-	
+
 	i = 0;
 	len_s = ft_strlen(s);
 	new_s = (char *) malloc (sizeof(char *) * (len_s + 1));
@@ -29,5 +29,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	}
 	new_s[i] = '\0';
-	return (new_s)
+	return (new_s);
 }

@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:48:26 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/21 17:11:40 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/22 12:04:23 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_countdigits(long int nbr)
 {
 	int	nc;
-	
+
 	nc = 0;
 	if (nbr <= 0)
 	{
@@ -37,7 +37,7 @@ static void	ft_putnumber(char *number, long int nbr, int ncount)
 	else if (nbr < 0)
 	{
 		number[0] = '-';
-		nbr *= -1;	
+		nbr *= -1;
 	}
 	while (nbr > 0)
 	{
@@ -60,5 +60,5 @@ char	*ft_itoa(int n)
 		return (NULL);
 	number[ncount] = '\0';
 	ft_putnumber(number, nbr, ncount);
-	return (number);	
+	return (number);
 }

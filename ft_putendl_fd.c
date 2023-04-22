@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 19:20:06 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/21 20:03:39 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/22 13:02:07 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, s, 1);
 		s++;
 	}
-	*s = '\n';
+	write(fd, "\n", 1);
 }
