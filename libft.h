@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 10:49:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/22 12:30:48 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:04:13 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,11 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+typedef	struct s_list
+{
+void *content;
+struct s_list *next;
+} t_list
 
 #endif
