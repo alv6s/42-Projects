@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 12:50:23 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/28 14:55:13 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:39:13 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*nextlst;
 	t_list	*current;
-	
+
 	if (lst != NULL && del != NULL)
 	{
 		current = *lst;
@@ -25,7 +25,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 			nextlst = current->next;
 			del(current->content);
 			free(current);
-			current = nextlst;	
+			current = nextlst;
 		}
 		*lst = NULL;
 	}

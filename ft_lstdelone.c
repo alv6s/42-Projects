@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 11:56:24 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/27 12:46:51 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:35:12 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 		return ;
 	del(lst->content);
 	free(lst);
-	lst =  NULL;
+	lst = NULL;
 }

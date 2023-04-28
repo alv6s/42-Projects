@@ -6,9 +6,11 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:43:58 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/28 13:54:20 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:50:01 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
@@ -17,7 +19,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 	current = lst;
 	while (current != NULL)
 	{
-		current->content = f(current->content);
+		f(current->content);
 		current = current->next;
 	}
 }

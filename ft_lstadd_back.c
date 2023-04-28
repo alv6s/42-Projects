@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:33:23 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/28 15:46:43 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:38:44 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!lst || !new)
 		return ;
 	if (!*lst)
-		*lst = *new;
+		*lst = new;
 	else
 	{
 		while (current->next != NULL)
 			current = current->next;
-		current->next = new; 
+		current->next = new;
 	}
 }
