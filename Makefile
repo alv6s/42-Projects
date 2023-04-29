@@ -6,7 +6,7 @@
 #    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 10:23:39 by pevieira          #+#    #+#              #
-#    Updated: 2023/04/28 16:24:21 by pevieira         ###   ########.fr        #
+#    Updated: 2023/04/29 16:41:52 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ INCLUDE = -I .
 CC = gcc
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror
-
 
 %.o: %.c
 	$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@

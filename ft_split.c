@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:02:16 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/22 12:35:19 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:32:55 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	words_splitted = (char **) malloc(sizeof(char *) * (count_ws(s, c) + 1));
-	if (!words_splitted)
+	if (!words_splitted || !s)
 		return (NULL);
 	while (*s != '\0')
 	{
