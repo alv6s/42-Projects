@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 14:55:25 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/20 19:09:10 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:06:35 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	if (!src)
-		return (0);
 	if (size > 0)
 	{
 		while (src[i] && i < (size - 1))
