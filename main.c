@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 18:25:39 by pevieira          #+#    #+#             */
-/*   Updated: 2023/05/05 18:30:47 by pevieira         ###   ########.fr       */
+/*   Created: 2023/05/02 13:43:44 by pevieira          #+#    #+#             */
+/*   Updated: 2023/05/05 19:37:58 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	main()
 {
-	unsigned int	i;
 
-	i = 0;
-	if (!s || !f)
-		return ;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
+	//lstadd_back
+	t_list	*newnew;
+	t_list *last;
+
+	newnew = ft_lstnew("Ola");
+	last = ft_lstnew("Adeus");
+	ft_lstadd_back(&newnew, last);
+	while (newnew != NULL)
+	{	
+		printf("%s\n",(char *)newnew->content);
+		newnew = newnew->next;
 	}
 }
