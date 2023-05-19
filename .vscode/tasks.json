@@ -7,7 +7,10 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "ft_basics.c",
+				"ft_printf.c",
+				"ft_hexa.c",
+				"libftprintf.h",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
