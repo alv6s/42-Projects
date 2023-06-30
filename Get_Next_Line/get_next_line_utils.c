@@ -6,15 +6,16 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:48:43 by pevieira          #+#    #+#             */
-/*   Updated: 2023/06/30 17:04:49 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:18:23 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t ft_strlen_gnl(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	int	i;
+
 	if (!str)
 		return (0);
 	i = 0;
@@ -28,7 +29,7 @@ char	*ft_strchr_gnl(const char *s, int c)
 	int	i;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	i = 0;
 	if (s[i] == (unsigned char) c)
 		return ((char *)s + i);
@@ -50,7 +51,7 @@ char	*ft_strjoin_gnl(char *stash, char *temp)
 
 	i = -1;
 	j = -1;
-	if(!stash)
+	if (!stash)
 	{
 		stash = malloc(sizeof(char) * 1);
 		stash[0] = '\0';
@@ -58,7 +59,7 @@ char	*ft_strjoin_gnl(char *stash, char *temp)
 	if (!stash || !temp)
 		return (NULL);
 	len = ft_strlen_gnl(stash) + ft_strlen_gnl(temp) + 1;
-	dest = malloc(sizeof(char) * len);
+	dest = malloc(sizeof(char) * len + 1);
 	if (!dest)
 		return (NULL);
 	while (stash[++i])
@@ -77,19 +78,18 @@ char	*ft_line_to_get(char *string)
 	size_t	j;
 
 	i = 0;
-	if(!string)
+	if (!string)
 		return (NULL);
 	while (string[i] && string[i] != '\n')
 		i++;
-	line = malloc(sizeof(char)* (i + 2));
+	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
-	
 	j = -1;
 	while (++j <= i)
 		line[j] = string[j];
 	line[i] = '\0';
-	return (line);	
+	return (line);
 }
 
 char	*ft_rest(char *string)
@@ -112,8 +112,8 @@ char	*ft_rest(char *string)
 	if (!rest)
 		return (NULL);
 	j = -1;
-	while(++len_first < len_total)
-		rest[++j] =  string[len_first];
+	while (++len_first < len_total)
+		rest[++j] = string[len_first];
 	rest[++j] = '\0';
 	free(string);
 	return (rest);

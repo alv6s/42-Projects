@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:48:01 by pevieira          #+#    #+#             */
-/*   Updated: 2023/06/30 16:56:30 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:15:06 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*read_and_stash(int fd, char *static_buffer)
 {
-	int	bytes_read;
+	int		bytes_read;
 	char	*temp;
-	
+
 	temp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!temp)
 		return (NULL);
@@ -51,7 +51,7 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = ft_line_to_get(stash);
-	stash =  ft_rest(stash);
+	stash = ft_rest(stash);
 	return (line);
 }
 /*
