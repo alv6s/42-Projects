@@ -6,22 +6,21 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:49:16 by pevieira          #+#    #+#             */
-/*   Updated: 2023/06/30 17:19:24 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/07/01 11:40:18 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <stdio.h>
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-# include <unistd.h>
-# include <stdint.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <stdbool.h>
 
 char	*get_next_line(int fd);
 char	*read_and_stash(int fd, char *static_buffer);

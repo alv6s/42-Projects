@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:48:43 by pevieira          #+#    #+#             */
-/*   Updated: 2023/06/30 17:18:23 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/07/01 12:08:14 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlen_gnl(const char *str)
 	if (!str)
 		return (0);
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
@@ -29,11 +29,11 @@ char	*ft_strchr_gnl(const char *s, int c)
 	int	i;
 
 	if (!s)
-		return (NULL);
+		return (0);
 	i = 0;
 	if (s[i] == (unsigned char) c)
 		return ((char *)s + i);
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] == (unsigned char) c)
 			return ((char *)s + i);
@@ -59,7 +59,7 @@ char	*ft_strjoin_gnl(char *stash, char *temp)
 	if (!stash || !temp)
 		return (NULL);
 	len = ft_strlen_gnl(stash) + ft_strlen_gnl(temp) + 1;
-	dest = malloc(sizeof(char) * len + 1);
+	dest = malloc(sizeof(char) * len);
 	if (!dest)
 		return (NULL);
 	while (stash[++i])
@@ -88,7 +88,9 @@ char	*ft_line_to_get(char *string)
 	j = -1;
 	while (++j <= i)
 		line[j] = string[j];
-	line[i] = '\0';
+	//if (string[i] == '\n')
+	//	line[i++] = '\n';
+	line[j] = '\0';
 	return (line);
 }
 
