@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:48:43 by pevieira          #+#    #+#             */
-/*   Updated: 2023/07/01 12:08:14 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:43:40 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ char	*ft_line_to_get(char *string)
 	j = -1;
 	while (++j <= i)
 		line[j] = string[j];
-	//if (string[i] == '\n')
-	//	line[i++] = '\n';
 	line[j] = '\0';
 	return (line);
 }
