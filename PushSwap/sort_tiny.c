@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tiny.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:48:03 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/01 23:00:09 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/05 15:49:26 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_stack  *find_highest_node(t_stack *stack)
     }
     return (highest_node);
 }
-void    tiny_sort(t_stack **a)
+void    sort_three(t_stack **a)
 {
     t_stack *highest_node;
 
@@ -46,4 +46,15 @@ void    tiny_sort(t_stack **a)
         ra(a);
     if ((*a)->value > (*a)->next->value)
         sa(a);
+}
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	while (stack_len(*a) > 3)
+	{
+		reset_node_info(*a, *b);
+		move_nodes_end(a, find_smallest(*a), 'a');
+		pb(b, a);
+		sort_big(a,b)
+	}
 }

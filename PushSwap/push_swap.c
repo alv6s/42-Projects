@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:11:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/01 14:58:57 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/05 15:43:00 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,15 @@ static void push_swap(t_stack **a, t_stack **b, int size)
         sa(a);
     else if(size == 3 && !is_sorted(*a))
         sort_three(a);
-    else if(size <= 5 && !is_sorted(*a))
+    else if(size == 5 && !is_sorted(*a))
         sort_five(a, b);
-    else if(size > 5 && !is_sorted(*a))
+    else if(!is_sorted(*a))
+	{
+		while(size-- > 3)
+			pb(b,a);
+		sort_tree(a);
         sort_big(a, b, size);
+	}
 }
 
 int main(int ac, char **av)
