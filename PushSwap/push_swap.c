@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:11:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/05 15:43:00 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:03:18 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static void push_swap(t_stack **a, t_stack **b, int size)
 	{
 		while(size-- > 3)
 			pb(b,a);
-		sort_tree(a);
-        sort_big(a, b, size);
+		sort_three(a);
+        sort_big(a, b);
 	}
 }
 
