@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:29:22 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/05 12:46:04 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:25:44 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ t_stack	*cheapest(t_stack *stack)
 		return (NULL);
 	while (stack)
 	{
-		if (stack->cheapest)
-			return (stack)
+		if (stack->cheapest_push)
+			return (stack);
 		stack = stack->next;
 	}
 	return (NULL);

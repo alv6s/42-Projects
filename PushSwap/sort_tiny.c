@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tiny.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 22:48:03 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/05 15:56:35 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:21:06 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ void	sort_five(t_stack **a, t_stack **b)
 		reset_node_info(*a, *b);
 		move_nodes_end(a, find_smallest(*a), 'a');
 		pb(b, a);
-		sort_big(a,b)
+		sort_big(a,b);
 	}
 }

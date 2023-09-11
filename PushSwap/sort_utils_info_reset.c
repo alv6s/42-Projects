@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_info_reset.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 23:18:14 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/05 12:15:51 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:27:01 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	set_index(t_stack *stack)
 		if (i <= middle)
 			stack->above_median = 1;
 		else
-			stack->adove_median = 0;
+			stack->above_median = 0;
 		stack = stack->next;
 		i++;
 	}
@@ -48,7 +48,7 @@ static void	set_target(t_stack *a, t_stack *b)
 			if (a_current->value > b->value)
 			{
 				target_node = a_current;
-				best_match_index = current_a->value;
+				best_match_index = a_current->value;
 			}
 			a_current = a_current->next;
 		}
@@ -72,7 +72,7 @@ void	set_price(t_stack *a, t_stack *b)
 	{
 		b->push_price = b->index;
 		if (!(b->above_median))
-			b->push_price = len_b - (b->current_position);
+			b->push_price = len_b - (b->index);
 		if (b->target->above_median)
 			b->push_price += b->target->index;
 		else
@@ -98,7 +98,7 @@ void	set_cheapest_node(t_stack *b)
 		}
 		b = b->next;
 	}
-	best_match_node->cheapest = 1;
+	best_match_node->cheapest_push = 1;
 }
 
 void	reset_node_info(t_stack *a, t_stack *b)
@@ -107,5 +107,5 @@ void	reset_node_info(t_stack *a, t_stack *b)
 	set_index(b);
 	set_target(a,b);
 	set_price(a,b);
-	set_cheapest_node(a,b);
+	set_cheapest_node(b);
 }

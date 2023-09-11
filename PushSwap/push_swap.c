@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:11:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/07 16:03:18 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:05:29 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int main(int ac, char **av)
         return (0);
     if(!is_correct_input(av))
         print_error_exit(NULL, NULL);
-    a = creat_stack(a, av);
+    a = create_stack(ac, av);
     b = NULL;
-    size = stack_size(a);
-    get_main_index(a, size);
+    size = stack_len(a);
+    //get_main_index(a, size);
     push_swap(&a, &b, size);
     free_stack(&a);
     free_stack(&b);

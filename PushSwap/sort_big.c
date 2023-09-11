@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 23:05:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/05 15:20:48 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:31:05 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,32 @@
 
 static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*a != cheapest_node->target_node && *b != cheapest_node)
+	while (*a != cheapest_node->target && *b != cheapest_node)
 		rr(a,b);
-	set_current_position(*a);
-	set_current_position(*b);
+	set_index(*a);
+	set_index(*b);
 }
 
 static void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-	while (*a != cheapest_node->target_node && *b != cheapest_node)
+	while (*a != cheapest_node->target && *b != cheapest_node)
 		rrr(a,b);
-	set_current_position(*a);
-	set_current_position(*b);
+	set_index(*a);
+	set_index(*b);
 }
 
-static void	move_nodes_end(t_stack **stack, t_stack *cheapest_node, char stack_name)
+void	move_nodes_end(t_stack **stack, t_stack *cheapest_node, char stack_name)
 {
 	while (*stack != cheapest_node)
 	{
-		if (stack_name = 'a')
+		if (stack_name == 'a')
 		{
 			if (cheapest_node->above_median)
 				ra(stack);
 			else
 				rra(stack);
 		}
-		if (stack_name = 'b')
+		if (stack_name == 'b')
 		{
 			if (cheapest_node->above_median)
 				rb(stack);
@@ -65,12 +65,14 @@ static void	move_nodes(t_stack **a, t_stack **b)
 
 void	sort_big(t_stack **a, t_stack **b)
 {
+	t_stack	*smallest;
+
 	while (*b)
 	{
 		reset_node_info(*a,*b);
 		move_nodes(a, b);
 	}
-	set_current_position(*a);
+	set_index(*a);
 	smallest= find_smallest(*a);
 	if (smallest-> above_median)
 	{

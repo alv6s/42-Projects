@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:11:42 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/07 15:56:43 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/11 23:30:19 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@ t_stack	*cheapest(t_stack *stack);
 int	stack_len(t_stack *stack);
 t_stack	*find_last_node(t_stack *head);
 t_stack	*find_smallest(t_stack *stack);
+void	move_nodes_end(t_stack **stack, t_stack *cheapest_node, char stack_name);
 
 t_stack *create_stack(int ac, char **av);
+
+int	is_correct_input(char **arg);
+int	ft_strcmp(char *s1, char *s2);
 
 void	reset_node_info(t_stack *a, t_stack *b);
 void	set_cheapest_node(t_stack *b);
