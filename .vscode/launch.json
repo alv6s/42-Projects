@@ -4,7 +4,12 @@
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
-		
-
+	{
+		"name": "(lldb) Attach",
+		"type": "cppdbg",
+		"request": "attach",
+		"program": "${workspaceFolder}/PushSwap/push_swap 1 3 4 5",
+		"MIMode": "lldb"
+	}
 	]
 }

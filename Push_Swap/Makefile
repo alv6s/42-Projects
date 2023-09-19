@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
+#    By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/07 15:40:01 by pevieira          #+#    #+#              #
-#    Updated: 2023/09/07 15:58:30 by pevieira         ###   ########.fr        #
+#    Created: 2023/09/19 15:47:54 by pevieira          #+#    #+#              #
+#    Updated: 2023/09/19 16:04:20 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRC = command_push.c/command_reverse_rotate.c/command_rotate.c/command_swap.c/push_swap.c \
-		/sort_big.c/sort_tiny.c/sort_utils_info_reset.c/stack_creation.c/stack_utils_2.c/stack_utils.c
+SRC = commands_1.c commands_2.c error_cases.c main.c set_node_infos.c \
+		sort_big_algorithm.c sort_small_algorithm.c stack_creation.c stack_utils.c
 
 OBJS = ${SRC:.c=.o}
 
