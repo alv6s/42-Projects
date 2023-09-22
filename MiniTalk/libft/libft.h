@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 10:49:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/20 19:17:11 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:54:19 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,16 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
-int			ft_printf(const char *str, ...);
-int			ft_putchar(int c);
-int			ft_write_special(va_list args, const char s);
-int			ft_putstr(char *str);
-int			ft_hexparam(unsigned int nbr, const char s);
-char		*ft_uitoa(unsigned int n);
-int			ft_printpointer(unsigned long long nbr);
-void		ft_hexconvertion(unsigned long long nbr, const char s);
-int			ft_hexlen(unsigned long long nbr);
-int			ft_unsigned_putdecimal(unsigned int nbr);
-int			ft_putdecimal(int nbr);
+int		ft_printf(const char *str, ...);
+int		ft_putchar(int c);
+int		ft_write_special(va_list args, const char s);
+int		ft_putstr(char *str);
+int		ft_hexparam(unsigned int nbr, const char s);
+char	*ft_uitoa(unsigned int n);
+int		ft_printpointer(unsigned long long nbr);
+void	ft_hexconvertion(unsigned long long nbr, const char s);
+int		ft_hexlen(unsigned long long nbr);
+int		ft_unsigned_putdecimal(unsigned int nbr);
+int		ft_putdecimal(int nbr);
 
 #endif
