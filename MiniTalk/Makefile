@@ -31,7 +31,7 @@ all:	${NAME}
 ${NAMELIBFT}:
 		${MAKE} ${LIBFT_PATH} all
 
-${NAME}: ${NAMELIBFT}
+${NAME}:
 		${CC} ${CFLAGS} ${SRC_C} ${INCLUDE} ${NAMELIBFT} -o client
 		${CC} ${CFLAGS} ${SRC_S} ${INCLUDE} ${NAMELIBFT} -o server
 
