@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 14:15:18 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/20 20:17:11 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:28:58 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	char_to_bin(int pid, char c)
 {
-	int		i;
+	int	i;
 
     i = 0;
 	while (i < 8)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_algorithm.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:54:59 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/19 15:55:42 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:03:38 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate_both(t_stack **a,t_stack **b, t_stack *cheapest)
+static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest)
 {
 	while (*a != cheapest->target && *b != cheapest)
 		command_rotation(a, b, "rr");
@@ -45,7 +45,7 @@ void	ending_rotation(t_stack **stack, t_stack *top, char stack_name)
 				command_rotation(NULL, stack, "rb");
 			else
 				command_rotation(NULL, stack, "rrb");
-		}	
+		}
 	}
 }
 

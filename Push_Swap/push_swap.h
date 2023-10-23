@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:50:35 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/19 16:02:21 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:10:56 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_stack
 	int					index;
 	int					push_price;
 	bool				cheapest;
-    bool				above_median;
+	bool				above_median;
 	struct s_stack		*target;
 	struct s_stack		*next;
 	struct s_stack		*prev;
@@ -55,9 +55,9 @@ void			sort_three(t_stack **a);
 void			sort_five(t_stack **a, t_stack **b);
 void			push_swap(t_stack **a, t_stack **b);
 
-int		ft_strcmp(char *s1, char *s2);
-void	command_swap(t_stack **a, t_stack **b, char *choice);
-void	command_push(t_stack **a, t_stack **b, char *choice);
-void	command_rotation(t_stack **a, t_stack **b, char *choice);
+int				ft_strcmp(char *s1, char *s2);
+void			command_swap(t_stack **a, t_stack **b, char *choice);
+void			command_push(t_stack **a, t_stack **b, char *choice);
+void			command_rotation(t_stack **a, t_stack **b, char *choice);
 
 #endif

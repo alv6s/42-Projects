@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_node_infos.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:54:28 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/19 15:54:32 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:20:55 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	set_index(t_stack *stack)
 	while (stack)
 	{
 		stack->index = i;
+		stack->cheapest = false;
 		if (i <= middle)
 			stack->above_median = true;
 		else
@@ -38,22 +39,22 @@ static void	set_target(t_stack *a,
 {
 	t_stack			*current_a;
 	t_stack			*target;
-	long			best_match_index;
+	long			best_choice;
 
 	while (b)
 	{
-		best_match_index = LONG_MAX;
+		best_choice = LONG_MAX;
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->value > b->value && current_a->value < best_match_index)
+			if (current_a->value > b->value && current_a->value < best_choice)
 			{
-				best_match_index = current_a->value;
+				best_choice = current_a->value;
 				target = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (LONG_MAX == best_match_index)
+		if (LONG_MAX == best_choice)
 			b->target = get_minimum(a);
 		else
 			b->target = target;

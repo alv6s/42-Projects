@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:52:39 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/19 15:55:58 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:07:08 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ static void	rotate(t_stack **stack)
 	(*stack)->prev = NULL;
 	last->next->prev = last;
 	last->next->next = NULL;
-}	
+}
 
 static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
-	int				len;
+	int		len;
 
 	len = stack_len(*stack);
 	if (!stack || !*stack || len == 1)

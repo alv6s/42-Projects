@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_creation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:56:54 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/19 15:58:34 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:10:12 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static long	ft_atol(const char *str)
 	result = 0;
 	signal = 1;
 	i = 0;
-	while ((str[i] >= 9 && str[i]<= 13) || str[i] == 32)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '+')
 		i++;

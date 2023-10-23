@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:49:55 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/19 15:56:07 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:08:35 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	swap(t_stack **head)
 	int	len;
 
 	len = stack_len(*head);
-	if (NULL == *head || NULL == head || 1 == len)   // REVER ISTO WTF!!???
+	if (*head == NULL || head == NULL || len == 1)
 		return ;
 	*head = (*head)->next;
 	(*head)->prev->prev = *head;
