@@ -1,19 +1,6 @@
 #include "minilibx/mlx.h"
 #include <stdlib.h>
 
-enum {
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17
-};
-
-// usage:
-mlx_hook(vars.win, ON_DESTROY, 0, close, &vars);
-
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
