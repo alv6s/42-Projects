@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 14:31:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/01 17:19:01 by pevieira         ###   ########.fr       */
+/*   Created: 2023/04/13 12:09:11 by pevieira          #+#    #+#             */
+/*   Updated: 2023/04/19 19:24:28 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int ac, char *av)
+int	ft_isprint(int c)
 {
-	if (ac != 2)
-		ft_printerror();
-	if (check_param(av[1]))
-		ft_error(,2);
-	so_long();
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
-
-bool	check_param(char *param)
-{
-	int	i;
-
-	i = 0;
-	while (param[i])
-		i++;
-	if (param[i - 1] != 'r' || param[i - 2] != 'e' || param[i - 3] != 'b'
-			|| param[i - 4] != '.')
-		return (true);
-	return (false);
-}			

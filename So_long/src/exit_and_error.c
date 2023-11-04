@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   exit_and_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:45:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/10/23 16:09:45 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/04 18:48:48 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../inc/so_long.h"
 
 void free_game(t_game *game)
 {
@@ -23,17 +25,21 @@ void free_game(t_game *game)
 		{
 			mlx_destroy_display(game->mlx);
 			free(game->mlx);
-		}	
+		}
+		exit(0)
 	}
 }
 
-int	exit(t_game *game,char *msg, int fd)
+int	ft_error_exit(t_game *game, char *msg, int fd)
 {
 	if (fd == 2)
-		ft_putendl_fd("Error", fd);
+	{
+		ft_putendl_fd(msg, fd);
+		if (game)
+			free_game(t_game *game);
+		exit(1);
+	}
 	ft_putendl_fd(msg, fd);
 	free_game(t_game *game);
-	if (fd == 2)
-		exit(EXIT_FAILURE);
-	exit(EXIT_SUCCESS)
+	exit(0)
 }
