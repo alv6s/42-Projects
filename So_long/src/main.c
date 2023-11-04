@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:31:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/04 18:52:46 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:11:20 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char *av)
 		ft_error_exit((void), "Please use just 1 argument.\n", 2);
 
 	if (check_argument(av[1]))
-		ft_error_exit((void), "The map needs to be a ".ber" file type.\n", 2);
+		ft_error_exit((void), "The map needs to be a ".ber" file.\n", 2);
 	so_long();
 }
 
