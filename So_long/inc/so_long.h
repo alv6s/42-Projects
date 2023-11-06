@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/04 18:59:20 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:30:07 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,31 @@
 # include <limits.h>
 # include <fcntl.h>
 
-
 typedef struct s_data
 {
-	void		*mlx_ptr; // MLX pointer
-	void		*win_ptr; // MLX window pointer
-	void		*textures[5]; // MLX image pointers (on the stack)
-	t_map		*map; // Map pointer (contains map details - preferably kept on the stack)
+	int		fd;
+	int		heightmap;
+	int		widthmap;
+	int		playercount;
+	int		columncount;
+	int		exitcount;
+	int		x_axis;
+	int		y_axis;
+	int		counter;
+	int		collectables;
+
+	char	**map;
+
+	void	*floor;
+	void	*barrier;
+	void	*player;
+	void	*exit;
+	void	*collectable;
+	
+	void	*mlx_ptr;
+	void	*win_ptr;
+
 }	t_game;
+
 
 #endif
