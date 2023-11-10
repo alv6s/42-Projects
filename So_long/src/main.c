@@ -6,21 +6,22 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:31:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/06 18:09:20 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:18:51 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	init_mlx(t_game *game)
+static void	init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		ft_error_exit(game, "Couldn't initialize mlx.", 2);
-	//loading textures?
-	game->win = mlx_new_window(game->mlx, 600, 400, "hi :)");
+		exit_error(game, "Couldn't initialize mlx.");
+	load_textures(game);
+	game->win = mlx_new_window(game->mlx, game->map.cols * TILE_SIZE,
+			game->map.rows * TILE_SIZE, "so_long");
 	if (!game->win)
-		ft_error_exit(game, "Couldn't create the window :(", 2)
+		exit_error(game, "Couldn't create window.");
 }
 
 void	so_long()
@@ -34,16 +35,6 @@ void	so_long()
 	mlx_loop(game.mlxpointer);
 }
 
-int	main(int ac, char *av)
-{
-	if (ac != 2)
-		ft_error_exit((void), "Usage: ./so_long <map_name>.ber.\n", 2);
-
-	if (check_argument(av[1]))
-		ft_error_exit((void), "Invalid file extension.\n", 2);
-	so_long();
-}
-
 bool	check_argument(char *argument)
 {
 	int	i;
@@ -53,4 +44,14 @@ bool	check_argument(char *argument)
 			|| argument[i - 4] != '.')
 		return (true);
 	return (false);
-}			
+}
+
+int	main(int ac, char **av)
+{
+	if (ac != 2)
+		ft_error_exit((void), "Usage: ./so_long <map_name>.ber.\n", 2);
+
+	if (check_argument(av[1]))
+		ft_error_exit((void), "Invalid file extension.\n", 2);
+	so_long();
+}

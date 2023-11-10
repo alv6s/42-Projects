@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/06 18:30:07 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/10 15:29:23 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include "../libft/libft.h"
 # include <limits.h>
 # include <fcntl.h>
+
+
+
+
 
 typedef struct s_data
 {

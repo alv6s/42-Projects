@@ -117,22 +117,48 @@ static int	keyboard_a_d(t_complete *game, int movement)
 	printf("Collectables Remaining: %i\n", game->collectables);
 	return (1);
 }
-
-int	controls_working(int command, t_complete *game)
+////////
+int	keypress(int command, t_complete *game)
 {
 	int	works;
 
 	if (command == 53)
 		exit_point(game);
 	if (command == 13)
-		works = keyboard_w_s(game, command);
+		works = ft_move_player(game, command);
 	if (command == 1)
 		works = keyboard_w_s(game, command);
 	if (command == 0)
 		works = keyboard_a_d(game, command);
 	if (command == 2)
 		works = keyboard_a_d(game, command);
-	if (works)
-		adding_in_graphics(game);
 	return (1);
+}
+
+int	ft_move_player(t_data *game, int x, int y)
+{
+	if (d->map.map[y][x] == '0' || d->map.map[y][x] == 'C')
+	{
+		mlx_put_image_to_window(d->mlx.mlx, d->mlx.win,
+			d->spr.f_img, d->plr.p_c * SIZE, d->plr.p_r * SIZE);
+		mlx_put_image_to_window(d->mlx.mlx, d->mlx.win,
+			d->spr.p_img, x * SIZE, y * SIZE);
+		if (d->map.map[y][x] == 'C')
+			d->plr.to_collect--;
+		d->map.map[d->plr.p_r][d->plr.p_c] = '0';
+		d->map.map[y][x] = '0';
+		d->plr.p_c = x;
+		d->plr.p_r = y;
+		d->plr.n_moves++;
+		return (1);
+	}
+	if (d->map.map[y][x] == 'E' && d->plr.to_collect == 0)
+	{
+		ft_printf("Moves: %i\n", d->plr.n_moves + 1);
+		ft_printf("Congratulations, you finished the game!\n");
+		ft_close_win(d);
+	}
+	if (to_print == 1)
+		ft_printf("Moves: %i\n", data->plr.n_moves);
+	return (0);
 }
