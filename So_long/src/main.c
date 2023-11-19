@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:31:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/18 15:48:57 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:35:36 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ void	so_long()
 	t_game	*game;
 
 	ft_bzero(&game, sizeof(t_game));
+	map_reading(&game);
+	ft_map_check(&game);
 	init_mlx(t_game *game);
-	mlx_key_hook(game.win_ptr, controls_working//AQUI VER, &game);
-	mlx_hook(game.win_ptr, 17, 0, (void *)exit, 0);
+	mlx_hook(game.mlx_win, 2, 1L << 0, ft_keypress, &game);
+	mlx_hook(game.mlx_win, 17, 1L << 17, ft_error_exit, &game);
 	mlx_loop(game.mlx_ptr);
 }
 

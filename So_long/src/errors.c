@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:45:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/18 16:02:16 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:34:19 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void free_game(t_game *game)
 			mlx_destroy_display(game->mlx_ptr);
 			free(game->mlx_ptr);
 		}
-		exit(0)
+		exit(0) //mudar isto aqui porque se for erro nao vai pro outro
 	}
 }
 

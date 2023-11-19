@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:47 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 17:06:03 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:48:52 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ static void	render_map(t_game *game)
 
 static void	check_textures(t_game *game)
 {
-	if (!game->walls || !game->space || !game->exit
-		|| !game->collect
-		|| !game->player)
-		exit_error(game, "Couldn't load textures.");
+	if (!game->barrier || !game->floor || !game->exit
+		|| !game->collectable || !game->player)
+		ft_error_exit(game, "Couldn't load textures", 2);
 }
 
 static void	load_textures(t_game *game)
@@ -61,6 +60,6 @@ void	init_game(t_game *game)
 {
 	map_reading(game);  
 	init_mlx_and_textures(game);
-	load_textures(game)
+	load_textures(game);
 	render_map(game);
 }
