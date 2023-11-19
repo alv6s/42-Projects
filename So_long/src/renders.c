@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:47 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 17:48:52 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 22:45:26 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void	render_map(t_game *game)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
 
-	i = 0;
-	while (i++ < game.rows)
+	y = 0;
+	while (y++ < game->rows)
 	{
-		j = 0;
-		while (j++ < game.cols)
+		x = 0;
+		while (x++ < game->cols)
 		{
 			if (game->map[y][x] == '1')
 				game->img = &game->barrier;  //pq tem o endereco
@@ -34,7 +34,7 @@ static void	render_map(t_game *game)
 			else if (game->map[y][x] == 'P')
 				game->img = &game->player;
 			mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img,
-				j * TILE, i * TILE);
+				x * TILE, y * TILE);
 		}
 	}
 }
@@ -58,8 +58,8 @@ static void	load_textures(t_game *game)
 
 void	init_game(t_game *game)
 {
-	map_reading(game);  
-	init_mlx_and_textures(game);
+	//map_reading(game);  
+	//init_mlx_and_textures(game);
 	load_textures(game);
 	render_map(game);
 }

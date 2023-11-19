@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:05 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 14:02:48 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 22:30:01 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ static int	add_row(t_game *game, char *line)
 	return (1);
 }
 
-int	map_reading(t_game *game)
+int	map_reading(t_game *game, char *file)
 {
 	char	*line;
 
-	game->fd = open(argv[1], O_RDONLY);
+	game->fd = open(file, O_RDONLY);
 	if (game->fd < 0)
 		return (0);
 	while (1)
@@ -67,12 +67,12 @@ int	map_reading(t_game *game)
 
 void	ft_map_check(t_game *game)
 {
-	if (game.rows < 3 || game.cols < 5)
+	if (game->rows < 3 || game->cols < 5)
 		ft_error_exit(game, "Error\nMap too small\n", 2);
 	if (ft_check_characters(game) == 0)
 		ft_error_exit(game, "Error\nWrong number of characters\n", 2);
 	if (ft_check_retangular(game) == 0)
-		ft_error_exit("Error\nInvalid map - map is not retangular\n", 2);
+		ft_error_exit(game,"Map is not retangular\n", 2);
 	if (ft_check_walls(game) == 0)
 		ft_error_exit(game, "Error\nNot surrounded by walls\n", 2);
 	if (ft_check_path(game) == 0)
@@ -88,7 +88,7 @@ int	ft_check_characters(t_game *game)
 		while (game->x < game->cols)
 		{
 			if (game->map[game->y][game->x] == 'C')
-				game->collectibles++;
+				game->collectables++;
 			else if (game->map[game->y][game->x] == 'E')
 				game->exitcount++;
 			else if (game->map[game->y][game->x] == 'P')
@@ -97,13 +97,13 @@ int	ft_check_characters(t_game *game)
 				game->player_x = game->x;
 				game->player_y = game->y;
 			}
-			else if (ft_strchr("01CEP", game.map[game->y][game->x]) == 0)
+			else if (ft_strchr("01CEP", game->map[game->y][game->x]) == 0)
 				ft_error_exit(game, "Error\nWrong character was found\n", 2);
 			game->x++;
 		}
 		game->y++;
 	}
-	return (game->collectibles >= 1 && game->exitcount == 1
+	return (game->collectables >= 1 && game->exitcount == 1
 		&& game->playercount == 1);
 }
 
@@ -113,7 +113,7 @@ int	ft_check_retangular(t_game *game)
 	game->y = 0;
 	while (game->y < game->rows)
 	{
-		if (ft_strlen(game->map[game->y]) != game->cols)
+		if ((int)ft_strlen(game->map[game->y]) != game->cols)
 			return (0);
 		game->y++;
 	}
@@ -123,19 +123,19 @@ int	ft_check_retangular(t_game *game)
 // check if the map is surrounded by walls (all lines start and end with 1)
 int	ft_check_walls(t_game *game)
 {
-	game.y = 0;
-	while (game.y < game.rows)
+	game->y = 0;
+	while (game->y < game->rows)
 	{
-		if (game.map[game.y][0] != '1'
-				|| game.map[game->y][game->cols - 1] != '1')
+		if (game->map[game->y][0] != '1'
+				|| game->map[game->y][game->cols - 1] != '1')
 			return (0);
 		game->y++;
 	}
 	game->x = 0;
-	while (game->x < game.cols)
+	while (game->x < game->cols)
 	{
-		if (game.map[0][game.x] != '1'
-				|| game.map[game.rows - 1][game.x] != '1')
+		if (game->map[0][game->x] != '1'
+				|| game->map[game->rows - 1][game->x] != '1')
 			return (0);
 		game->x++;
 	}
@@ -148,16 +148,16 @@ int	ft_check_path(t_game *game)
 	int		path_result;
 	char	**map_cpy;
 
-	game.y = 0;
+	game->y = 0;
 	path_result = 0;
-	map_cpy = ft_calloc(game.rows + 1, sizeof(char *));
+	map_cpy = ft_calloc(game->rows + 1, sizeof(char *));
 	if (!map_cpy)
 		ft_error_exit(game, "Error\nMalloc failed\n", 2);
-	while (game.y < game.rows)
+	while (game->y < game->rows)
 	{
-		map_cpy[game.y] = ft_strdup(game.map[game.y]);
+		map_cpy[game->y] = ft_strdup(game->map[game->y]);
 		{
-			if (!game.map[game->y])
+			if (!game->map[game->y])
 			{
 				free_array(map_cpy);
 				ft_error_exit(game, "Error\nMalloc failed\n", 2);
@@ -167,19 +167,17 @@ int	ft_check_path(t_game *game)
 	}
 	path_result = ft_flood_fill(game, map_cpy, game->player_y, game->player_x);
 	free_array(map_cpy);
-	return (e);
+	return (path_result);
 }
-
-
 
 // recursive function to check if the map is valid
 int	ft_flood_fill(t_game *game, char **map, int y, int x)
 {
-	int			n_collectibles;
+	int			n_collectables;
 	static int	c;
 	static int	e;
 
-	n_collectibles = game.collectibles;
+	n_collectables = game->collectables;
 	if (map[y][x] == '1')
 		return (0);
 	else if (map[y][x] == 'C')
@@ -194,7 +192,7 @@ int	ft_flood_fill(t_game *game, char **map, int y, int x)
 	ft_flood_fill(game, map, y - 1, x);
 	ft_flood_fill(game, map, y, x + 1);
 	ft_flood_fill(game, map, y, x - 1);
-	if (c == n_collectibles && e == 1)
+	if (c == n_collectables && e == 1)
 		return (1);
 	else
 		return (0);

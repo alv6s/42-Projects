@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 10:49:13 by pevieira          #+#    #+#             */
-/*   Updated: 2023/09/20 19:17:11 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 22:18:23 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <ctype.h>
 # include <stdbool.h>
 # include <stdarg.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_list
 {
@@ -81,5 +86,13 @@ void		ft_hexconvertion(unsigned long long nbr, const char s);
 int			ft_hexlen(unsigned long long nbr);
 int			ft_unsigned_putdecimal(unsigned int nbr);
 int			ft_putdecimal(int nbr);
+
+char	*get_next_line(int fd);
+char	*read_and_stash(int fd, char *static_buffer);
+char	*ft_strjoin_gnl(char *stash, char *temp);
+char	*ft_strchr_gnl(const char *s, int c);
+size_t	ft_strlen_gnl(const char *str);
+char	*ft_rest(char *string);
+char	*ft_line_to_get(char *string);
 
 #endif

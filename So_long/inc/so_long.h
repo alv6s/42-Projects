@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 17:54:02 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 22:06:34 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_data
 
 
 void	so_long();
-
-int		map_reading(t_game *game);
+void	init_mlx(t_game *game);
+int		map_reading(t_game *game, char *file);
 void	ft_map_check(t_game *game);
 int		ft_check_characters(t_game *game);
 int		ft_check_retangular(t_game *game);
@@ -67,7 +67,7 @@ int		ft_check_path(t_game *game);
 int		ft_flood_fill(t_game *game, char **map, int y, int x);
 
 void	init_game(t_game *game);
-bool	check_argument(char *argument)
+int		check_argument(char *argument);
 int		ft_keypress(int keycode, t_game *game);
 int		ft_move_player(t_game *game, int x, int y);
 

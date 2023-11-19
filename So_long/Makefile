@@ -6,7 +6,7 @@
 #    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 17:36:16 by pevieira          #+#    #+#              #
-#    Updated: 2023/11/19 17:36:20 by pevieira         ###   ########.fr        #
+#    Updated: 2023/11/19 23:03:12 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ MAKE = make -C
 LIBFT_PATH = libft
 MLX_PATH = mlx
 LIBFT = -L ${LIBFT_PATH} -lft
-MLX	= -L ${MLX_PATH} -lmlx -Ilmlx -lXext -lX11 -lm 
+MLX	= -L ${MLX_PATH} -lGL -lglfw -lGLEW
 
 .c.o:
 		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
