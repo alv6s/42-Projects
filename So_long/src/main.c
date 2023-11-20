@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:31:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 13:16:07 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 22:07:48 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	init_mlx(t_game *game)
 			game->rows * TILE, "so_long");
 	if (!game->win_ptr)
 		ft_error_exit(game, "Couldn't create window.", 2);
-	printf("4");
-	init_game(game);
+	init_game(game); 
 }
 
 void	so_long(char *file)
@@ -32,18 +31,11 @@ void	so_long(char *file)
 	ft_bzero(&game, sizeof(t_game));
 	map_reading(&game, file);
 	ft_map_check(&game);
-	printf("2");
-	printf("2");
-	printf("2");
-	printf("2");
-	printf("2");
-	printf("2");
-	printf("2");
 	init_mlx(&game);
-	printf("3");
 	mlx_hook(game.mlx_ptr, 2, 1L << 0, ft_keypress, &game);
 	mlx_hook(game.mlx_ptr, 17, 1L << 17, ft_error_exit, &game);
 	mlx_loop(game.mlx_ptr);
+	printf("passou1");
 }
 
 int	check_argument(char *argument)

@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 23:33:22 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 22:13:50 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 # include <fcntl.h>
 
-# define TILE		20
+# define TILE		40
 # define ESC		65307
 # define UP			65362
 # define DOWN		65364
@@ -76,5 +76,7 @@ int		ft_move_player(t_game *game, int x, int y);
 int		ft_error_exit(t_game *game, char *msg, int fd);
 void 	free_game(t_game *game);
 void	free_array(char **map);
+
+void	render_map(t_game *game);
 
 #endif
