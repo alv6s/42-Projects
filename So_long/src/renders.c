@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:47 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 22:16:13 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 23:54:29 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	render_map(t_game *game)
 		while (++x < game->cols)
 		{
 			if (game->map[y][x] == '1')
-				game->img = game->barrier;  //pq tem o endereco
+				game->img = game->barrier;
 			else if (game->map[y][x] == '0')
 				game->img = game->floor;
 			else if (game->map[y][x] == 'E')
@@ -49,18 +49,15 @@ static void	check_textures(t_game *game)
 static void	load_textures(t_game *game)
 {
 	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "img/floor.xpm", &game->x, &game->y);
-	game->barrier = mlx_xpm_file_to_image(game->mlx_ptr, "img/wall.xpm", &game->x, &game->y);
+	game->barrier = mlx_xpm_file_to_image(game->mlx_ptr, "img/barrier.xpm", &game->x, &game->y);
 	game->exit = mlx_xpm_file_to_image(game->mlx_ptr, "img/exit.xpm", &game->x, &game->y);
 	game->player = mlx_xpm_file_to_image(game->mlx_ptr, "img/player.xpm", &game->x, &game->y);
-	game->collectable = mlx_xpm_file_to_image(game->mlx_ptr, "img/item.xpm", &game->x, &game->y);
+	game->collectable = mlx_xpm_file_to_image(game->mlx_ptr, "img/collectable.xpm", &game->x, &game->y);
 	check_textures(game);
 }
 
 void	init_game(t_game *game)
 {
-	//map_reading(game);  
-	//init_mlx_and_textures(game);
-	
 	load_textures(game);
 	check_textures(game);
 	render_map(game);

@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:05 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 13:18:27 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 23:07:16 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	map_reading(t_game *game, char *file)
 	while (1)
 	{
 		line = get_next_line(game->fd);
-		printf("%s", line);
 		if (!add_row(game, line))
 			break ;
 	}
@@ -68,7 +67,6 @@ int	map_reading(t_game *game, char *file)
 
 void	ft_map_check(t_game *game)
 {
-	printf("\nrows %d cols %d\n", game->rows, game->cols);
 	if (game->rows < 3 || game->cols < 5)
 		ft_error_exit(game, "Error\nMap too small\n", 2);
 	if (ft_check_characters(game) == 0)
@@ -87,7 +85,7 @@ int	ft_check_characters(t_game *game)
 	while (game->y < game->rows)
 	{
 		game->x = 0;
-		while (game->x < game->cols)    //VERIFICAR SE CHEGA A ULTIMA LINHA!!!!
+		while (game->x < game->cols)
 		{
 			if (game->map[game->y][game->x] == 'C')
 				game->collectables++;
@@ -115,11 +113,6 @@ int	ft_check_retangular(t_game *game)
 
 	while (game->y < game->rows)
 	{
-		printf("\n game->y %d", game->y);
-		printf("\n game->rows %d", game->rows);
-		printf("\n game->cols %d", game->cols);
-		printf("\n game->cols %d", (int)ft_strlen(game->map[game->y]));
-		printf("\n 2 strlen: %d - %s, game.cols %d", (int)ft_strlen(game->map[game->y]), game->map[game->y], game->cols);
 		if ((int)ft_strlen(game->map[game->y]) != game->cols)
 			return (0);
 		game->y++;
@@ -174,8 +167,6 @@ int	ft_check_path(t_game *game)
 	}
 	path_result = ft_flood_fill(game, map_cpy, game->player_y, game->player_x);
 	free_array(map_cpy);
-	printf("\nsaiu floodfill");
-	printf("\n%d path result", path_result);
 	return (path_result);
 }
 

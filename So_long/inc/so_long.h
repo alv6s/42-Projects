@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 22:13:50 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 23:52:13 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <limits.h>
 # include <fcntl.h>
 
-# define TILE		40
+# define TILE		60
 # define ESC		65307
 # define UP			65362
 # define DOWN		65364
