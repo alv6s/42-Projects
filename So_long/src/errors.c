@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:45:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 21:56:21 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 23:17:00 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void free_game(t_game *game)
 			mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 		if (game->mlx_ptr)
 		{
-			//mlx_destroy_display(game->mlx_ptr);
+			mlx_destroy_display(game->mlx_ptr);
 			free(game->mlx_ptr);
 		}
 		exit(0); //mudar isto aqui porque se for erro nao vai pro outro

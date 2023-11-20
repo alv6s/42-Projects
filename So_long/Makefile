@@ -6,7 +6,7 @@
 #    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 17:36:16 by pevieira          #+#    #+#              #
-#    Updated: 2023/11/19 23:03:12 by pevieira         ###   ########.fr        #
+#    Updated: 2023/11/19 23:34:39 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,9 @@ CFLAGS = -Wall -Wextra -Werror -g
 INCLUDE = -I include
 MAKE = make -C
 LIBFT_PATH = libft
-MLX_PATH = mlx
+MLX_PATH = minilibx-linux
 LIBFT = -L ${LIBFT_PATH} -lft
-MLX	= -L ${MLX_PATH} -lGL -lglfw -lGLEW
+MLX	= -L ${MLX_PATH} -lGL -lglfw -lGLEW -lmlx -lXext -lX11
 
 .c.o:
 		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}

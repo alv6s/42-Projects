@@ -6,11 +6,11 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 15:48:26 by pevieira          #+#    #+#             */
-/*   Updated: 2023/05/18 21:04:45 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/19 23:48:13 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_countdigits(long int nbr)
 {
