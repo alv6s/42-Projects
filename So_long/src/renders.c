@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:47 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 22:45:26 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:11:24 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void	init_game(t_game *game)
 {
 	//map_reading(game);  
 	//init_mlx_and_textures(game);
+	printf("5");
 	load_textures(game);
+	printf("6");
 	render_map(game);
+	printf("7");
 }

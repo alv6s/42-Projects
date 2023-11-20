@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:05 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 00:06:34 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/20 13:18:27 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	map_reading(t_game *game, char *file)
 	while (1)
 	{
 		line = get_next_line(game->fd);
+		printf("%s", line);
 		if (!add_row(game, line))
 			break ;
 	}
@@ -67,12 +68,13 @@ int	map_reading(t_game *game, char *file)
 
 void	ft_map_check(t_game *game)
 {
+	printf("\nrows %d cols %d\n", game->rows, game->cols);
 	if (game->rows < 3 || game->cols < 5)
 		ft_error_exit(game, "Error\nMap too small\n", 2);
 	if (ft_check_characters(game) == 0)
 		ft_error_exit(game, "Error\nWrong number of characters\n", 2);
 	if (ft_check_retangular(game) == 0)
-		ft_error_exit(game,"Map is not retangular\n", 2);
+		ft_error_exit(game,"Map is not retangulasr\n", 2);
 	if (ft_check_walls(game) == 0)
 		ft_error_exit(game, "Error\nNot surrounded by walls\n", 2);
 	if (ft_check_path(game) == 0)
@@ -85,7 +87,7 @@ int	ft_check_characters(t_game *game)
 	while (game->y < game->rows)
 	{
 		game->x = 0;
-		while (game->x < game->cols)
+		while (game->x < game->cols)    //VERIFICAR SE CHEGA A ULTIMA LINHA!!!!
 		{
 			if (game->map[game->y][game->x] == 'C')
 				game->collectables++;
@@ -107,12 +109,17 @@ int	ft_check_characters(t_game *game)
 		&& game->playercount == 1);
 }
 
-// check if the map is retangular (all lines have the same number of columns)
 int	ft_check_retangular(t_game *game)
 {
 	game->y = 0;
+
 	while (game->y < game->rows)
 	{
+		printf("\n game->y %d", game->y);
+		printf("\n game->rows %d", game->rows);
+		printf("\n game->cols %d", game->cols);
+		printf("\n game->cols %d", (int)ft_strlen(game->map[game->y]));
+		printf("\n 2 strlen: %d - %s, game.cols %d", (int)ft_strlen(game->map[game->y]), game->map[game->y], game->cols);
 		if ((int)ft_strlen(game->map[game->y]) != game->cols)
 			return (0);
 		game->y++;
@@ -120,7 +127,7 @@ int	ft_check_retangular(t_game *game)
 	return (1);
 }
 
-// check if the map is surrounded by walls (all lines start and end with 1)
+
 int	ft_check_walls(t_game *game)
 {
 	game->y = 0;
@@ -167,10 +174,11 @@ int	ft_check_path(t_game *game)
 	}
 	path_result = ft_flood_fill(game, map_cpy, game->player_y, game->player_x);
 	free_array(map_cpy);
+	printf("\nsaiu floodfill");
+	printf("\n%d path result", path_result);
 	return (path_result);
 }
 
-// recursive function to check if the map is valid
 int	ft_flood_fill(t_game *game, char **map, int y, int x)
 {
 	int			n_collectables;
@@ -183,10 +191,7 @@ int	ft_flood_fill(t_game *game, char **map, int y, int x)
 	else if (map[y][x] == 'C')
 		c += 1;
 	else if (map[y][x] == 'E')
-	{
-		e = 1;
-		return (0);
-	}
+		e += 1;
 	map[y][x] = '1';
 	ft_flood_fill(game, map, y + 1, x);
 	ft_flood_fill(game, map, y - 1, x);
