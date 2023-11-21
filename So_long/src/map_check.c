@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:14:40 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 19:16:14 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:51:48 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_check_walls(t_game *game)
 
 void	ft_map_check(t_game *game)
 {
-	if (game->rows < 3 || game->cols < 5)
+	if (game->rows < 3 || game->cols < 3)
 		ft_error_exit(game, "Error\nMap too small.\n", 2);
 	if (ft_check_characters(game) == 0)
 		ft_error_exit(game, "Error\nWrong number of characters.\n", 2);

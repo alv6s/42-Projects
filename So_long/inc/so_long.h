@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 19:14:54 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:48:14 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		ft_keypress(int keycode, t_game *game);
 int		ft_error_exit(t_game *game, char *msg, int fd);
 void	free_game(t_game *game);
 void	free_array(char **map);
+int		ft_quit(t_game *game);
 
 void	render_map(t_game *game);
 
