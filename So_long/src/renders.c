@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:47 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 23:54:29 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:26:02 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	load_textures(t_game *game)
 	game->exit = mlx_xpm_file_to_image(game->mlx_ptr, "img/exit.xpm", &game->x, &game->y);
 	game->player = mlx_xpm_file_to_image(game->mlx_ptr, "img/player.xpm", &game->x, &game->y);
 	game->collectable = mlx_xpm_file_to_image(game->mlx_ptr, "img/collectable.xpm", &game->x, &game->y);
+	game->exit_open= mlx_xpm_file_to_image(game->mlx_ptr, "img/exit_open.xpm", &game->x, &game->y);
 	check_textures(game);
 }
 

@@ -6,14 +6,14 @@
 #    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/19 17:36:16 by pevieira          #+#    #+#              #
-#    Updated: 2023/11/19 23:34:39 by pevieira         ###   ########.fr        #
+#    Updated: 2023/11/21 11:17:06 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 OUT = so_long
 
 SRC = src/main.c src/errors.c src/map.c src/movements.c \
-		src/renders.c
+		src/renders.c src/map_check.c
 
 OBJS = ${SRC:.c=.o}
 

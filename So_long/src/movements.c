@@ -6,22 +6,32 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 15:09:30 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 22:36:56 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:23:00 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	ft_move_player(t_game *game, int x, int y)    //talvez passar para static
+static void ft_open_exit(t_game *game)
+{
+	game->collectables--;
+	if (game->collectables == 0)
+	{
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+			game->exit_open, game->exit_x * TILE, game->exit_y * TILE);
+	}
+}
+
+static int	ft_move_player(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == '0' || game->map[y][x] == 'C')
 	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->floor, game->player_x * TILE, game->player_y * TILE);
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,    //retificar
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->player, x * TILE, y * TILE);
 		if (game->map[y][x] == 'C')
-			game->collectables--;
+			ft_open_exit(game);
 		game->map[game->player_y][game->player_x] = '0';
 		game->map[y][x] = '0';
 		game->player_x = x;

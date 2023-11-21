@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 23:52:13 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:27:07 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_data
 	int		collectables;
 	int		player_x;
 	int		player_y;
+	int		exit_x;
+	int		exit_y;
 
 	char	**map;
 
@@ -48,6 +50,7 @@ typedef struct s_data
 	void	*barrier;
 	void	*player;
 	void	*exit;
+	void	*exit_open;
 	void	*collectable;
 	void	*img;
 	
@@ -70,7 +73,6 @@ int		ft_flood_fill(t_game *game, char **map, int y, int x);
 void	init_game(t_game *game);
 int		check_argument(char *argument);
 int		ft_keypress(int keycode, t_game *game);
-int		ft_move_player(t_game *game, int x, int y);
 
 
 int		ft_error_exit(t_game *game, char *msg, int fd);
