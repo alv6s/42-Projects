@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 19:07:46 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:14:54 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include "../mlx/mlx.h"
-# include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
 # include <limits.h>
 # include <fcntl.h>

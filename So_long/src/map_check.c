@@ -6,13 +6,13 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:14:40 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 18:59:26 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:16:14 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static void	ft_save_coordinates(t_game *game, char a, int y, int x)
+static void	ft_save_coordinates(t_game *game, char a)
 {
 	if (a == 'E')
 	{
@@ -39,9 +39,9 @@ int	ft_check_characters(t_game *game)
 			if (game->map[game->y][game->x] == 'C')
 				game->collectables++;
 			else if (game->map[game->y][game->x] == 'E')
-				ft_save_coordinates(game, 'E', y, x);
+				ft_save_coordinates(game, 'E');
 			else if (game->map[game->y][game->x] == 'P')
-				ft_save_coordinates(game, 'P', y, x);
+				ft_save_coordinates(game, 'P');
 			else if (ft_strchr("01CEP", game->map[game->y][game->x]) == 0)
 				ft_error_exit(game, "Error\nWrong character was found.\n", 2);
 			game->x++;
