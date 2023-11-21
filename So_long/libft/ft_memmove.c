@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 14:25:26 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/20 16:54:38 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:09:47 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		srccast += n;
 		while (n-- > 0)
 			*(--destcast) = *(--srccast);
-	}	
+	}
 	return (dest);
 }

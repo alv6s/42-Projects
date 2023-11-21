@@ -6,13 +6,13 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 15:09:30 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 11:23:00 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:51:30 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static void ft_open_exit(t_game *game)
+static void	ft_open_exit(t_game *game)
 {
 	game->collectables--;
 	if (game->collectables == 0)

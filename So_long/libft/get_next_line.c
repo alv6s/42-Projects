@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:48:01 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/19 22:46:38 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:08:38 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ char	*read_and_stash(int fd, char *static_buffer)
 	bytes_read = 1;
 	while (!ft_strchr_gnl(static_buffer, '\n') && bytes_read > 0)
 	{
-		bytes_read = read(fd, temp, BUFFER_SIZE); // read from fd to temp
-		if (bytes_read == -1) // if read fails
+		bytes_read = read(fd, temp, BUFFER_SIZE);
+		if (bytes_read == -1)
 		{
 			free(temp);
 			free(static_buffer);
 			return (NULL);
 		}
 		temp[bytes_read] = '\0';
-		static_buffer = ft_strjoin_gnl(static_buffer, temp); // join temp to static_buffer (stash)
+		static_buffer = ft_strjoin_gnl(static_buffer, temp);
 	}
 	free(temp);
-	if (ft_strlen_gnl(static_buffer) != 0) // if static_buffer is not empty
+	if (ft_strlen_gnl(static_buffer) != 0)
 		return (static_buffer);
 	free(static_buffer);
 	return (NULL);

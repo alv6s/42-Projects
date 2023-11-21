@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 14:02:16 by pevieira          #+#    #+#             */
-/*   Updated: 2023/04/29 15:32:55 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:10:05 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**ft_split(char const *s, char c)
 			while (*s && *s != c)
 				s++;
 			i++;
-		}		
+		}
 		else
 			s++;
 	}

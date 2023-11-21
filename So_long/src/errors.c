@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:45:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/20 23:06:01 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:29:15 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	free_array(char **map)
 {
 	int	i;
 
-	i=0;
-	if(map)
+	i = 0;
+	if (map)
 	{
 		while (map[i])
 			free(map[i++]);
@@ -39,7 +39,7 @@ void	free_array(char **map)
 	}
 }
 
-void free_game(t_game *game)
+void	free_game(t_game *game)
 {
 	if (game)
 	{
@@ -53,9 +53,10 @@ void free_game(t_game *game)
 			mlx_destroy_display(game->mlx_ptr);
 			free(game->mlx_ptr);
 		}
-		exit(0); //mudar isto aqui porque se for erro nao vai pro outro
+		exit(0); 
 	}
 }
+//mudar isto em cima exit aqui porque se for erro nao vai pro outro
 
 int	ft_error_exit(t_game *game, char *msg, int fd)
 {

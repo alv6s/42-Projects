@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 11:27:07 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/21 19:07:46 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_data
 	int		fd;
 	int		rows;
 	int		cols;
-	
+
 	int		playercount;
 	int		columncount;
 	int		exitcount;
@@ -53,14 +53,13 @@ typedef struct s_data
 	void	*exit_open;
 	void	*collectable;
 	void	*img;
-	
+
 	void	*mlx_ptr;
 	void	*win_ptr;
 
 }	t_game;
 
-
-void	so_long();
+void	so_long(char *file);
 void	init_mlx(t_game *game);
 int		map_reading(t_game *game, char *file);
 void	ft_map_check(t_game *game);
@@ -74,9 +73,8 @@ void	init_game(t_game *game);
 int		check_argument(char *argument);
 int		ft_keypress(int keycode, t_game *game);
 
-
 int		ft_error_exit(t_game *game, char *msg, int fd);
-void 	free_game(t_game *game);
+void	free_game(t_game *game);
 void	free_array(char **map);
 
 void	render_map(t_game *game);
