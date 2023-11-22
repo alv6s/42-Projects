@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:14:40 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 19:51:48 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/22 00:01:26 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_check_characters(t_game *game)
 			else if (game->map[game->y][game->x] == 'P')
 				ft_save_coordinates(game, 'P');
 			else if (ft_strchr("01CEP", game->map[game->y][game->x]) == 0)
-				ft_error_exit(game, "Error\nWrong character was found.\n", 2);
+				ft_error_exit(game, "Error\nWrong character was found.", 2);
 			game->x++;
 		}
 		game->y++;
@@ -88,13 +88,13 @@ int	ft_check_walls(t_game *game)
 void	ft_map_check(t_game *game)
 {
 	if (game->rows < 3 || game->cols < 3)
-		ft_error_exit(game, "Error\nMap too small.\n", 2);
+		ft_error_exit(game, "Error\nMap too small.", 2);
 	if (ft_check_characters(game) == 0)
-		ft_error_exit(game, "Error\nWrong number of characters.\n", 2);
+		ft_error_exit(game, "Error\nWrong number of characters.", 2);
 	if (ft_check_retangular(game) == 0)
-		ft_error_exit(game, "Error\nMap is not retangular.\n", 2);
+		ft_error_exit(game, "Error\nMap is not retangular.", 2);
 	if (ft_check_walls(game) == 0)
-		ft_error_exit(game, "Error\nNot surrounded by walls.\n", 2);
+		ft_error_exit(game, "Error\nNot surrounded by walls.", 2);
 	if (ft_check_path(game) == 0)
-		ft_error_exit(game, "Error\nNo valid path.\n", 2);
+		ft_error_exit(game, "Error\nNo valid path.", 2);
 }

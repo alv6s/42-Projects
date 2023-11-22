@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:05 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 18:59:49 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:24:09 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	map_columns(char *string)
 	columns = 0;
 	while (string[columns] != '\0')
 		columns++;
-	if (string[columns - 1] == '\n')
+	if (string[columns - 1] == '\n' && columns != 0)
 		columns--;
 	return (columns);
 }
@@ -53,7 +53,7 @@ int	map_reading(t_game *game, char *file)
 
 	game->fd = open(file, O_RDONLY);
 	if (game->fd < 0)
-		return (0);
+		ft_error_exit(game, "Error\nCouldn't open the file.", 2);
 	while (1)
 	{
 		line = get_next_line(game->fd);
@@ -61,7 +61,9 @@ int	map_reading(t_game *game, char *file)
 			break ;
 	}
 	close (game->fd);
-	game->cols = map_columns(game->map[0]);
+	if(!game->map)
+		ft_error_exit(game, "Error\nMap is empty.", 2);;
+	game->cols = map_columns(game->map[0]);	
 	return (1);
 }
 
@@ -74,7 +76,7 @@ int	ft_check_path(t_game *game)
 	path_result = 0;
 	map_cpy = ft_calloc(game->rows + 1, sizeof(char *));
 	if (!map_cpy)
-		ft_error_exit(game, "Error\nMalloc failed.\n", 2);
+		ft_error_exit(game, "Error\nMalloc failed.", 2);
 	while (game->y < game->rows)
 	{
 		map_cpy[game->y] = ft_strdup(game->map[game->y]);
@@ -82,7 +84,7 @@ int	ft_check_path(t_game *game)
 			if (!game->map[game->y])
 			{
 				free_array(map_cpy);
-				ft_error_exit(game, "Error\nMalloc failed.\n", 2);
+				ft_error_exit(game, "Error\nMalloc failed.", 2);
 			}
 		}
 		game->y++;

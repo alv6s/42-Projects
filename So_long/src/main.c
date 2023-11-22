@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 14:31:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 19:44:52 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:04:03 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int	check_argument(char *arg)
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-		ft_error_exit(NULL, "Error\nUsage: ./so_long 'name'.ber.\n", 2);
+		ft_error_exit(NULL, "Error\nUsage: ./so_long 'name'.ber.", 2);
 	if (check_argument(av[1]) == 1)
-		ft_error_exit(NULL, "Error\nInvalid file extension.\n", 2);
+		ft_error_exit(NULL, "Error\nInvalid file extension.", 2);
 	so_long(av[1]);
 	return (0);
 }

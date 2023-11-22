@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/21 19:48:14 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:56:06 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_data
 	void	*floor;
 	void	*barrier;
 	void	*player;
+	void	*above_exit;
 	void	*exit;
 	void	*exit_open;
 	void	*collectable;
