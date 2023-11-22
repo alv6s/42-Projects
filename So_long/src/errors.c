@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:45:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/22 00:03:22 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:44:28 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ static void	free_textures(t_game *game)
 		mlx_destroy_image(game->mlx_ptr, game->collectable);
 	if (game->player)
 		mlx_destroy_image(game->mlx_ptr, game->player);
+	if (game->exit_open)
+		mlx_destroy_image(game->mlx_ptr, game->exit_open);
+	if (game->above_exit)
+		mlx_destroy_image(game->mlx_ptr, game->above_exit);
 }
 
 void	free_array(char **map)
