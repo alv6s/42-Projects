@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:41:48 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/22 11:56:06 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:43:13 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 # define TILE		60
 # define ESC		65307
-# define UP			65362
-# define DOWN		65364
-# define LEFT		65361
-# define RIGHT		65363
+# define UP			119
+# define DOWN		115
+# define LEFT		97
+# define RIGHT		100
 
 typedef struct s_data
 {
