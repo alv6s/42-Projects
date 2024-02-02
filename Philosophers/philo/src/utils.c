@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:38 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 15:32:55 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:31:48 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,12 @@ int	ft_usleep(int time)
 int	print_message(char *str, t_philo *philo)
 {
 	int	time;
-	pthread_mutex_lock(&philo->table->lock);
-	/*if (philo->table->dead == true)
-	{
-		pthread_mutex_unlock(&philo->table->lock);
-		return (0);
-	}*/
-	pthread_mutex_unlock(&philo->table->lock);
+
 	pthread_mutex_lock(&philo->table->print);
-	time = get_time() - philo->table->start_time;
+	if (philo->table->dead == false)
+	{time = get_time() - philo->table->start_time;
 	printf("%d %d %s\n", time, philo->id, str);
+	}
 	pthread_mutex_unlock(&philo->table->print);
 	return (1);
 }

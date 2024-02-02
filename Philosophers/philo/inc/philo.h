@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:41:18 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 18:16:55 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:30:09 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_philo
     int                         last_meal;
     int                         meal_count;
     int                         time_left;
-    pthread_mutex_t   first_fork;
-    pthread_mutex_t   second_fork;
+    int                     first_fork;
+    int                      second_fork;
     pthread_mutex_t   lock;
     struct s_table   *table;
 }                 t_philo;

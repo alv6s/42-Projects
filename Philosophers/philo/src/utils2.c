@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:01:09 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 13:45:30 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:33:05 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ void	ft_exit(t_table *table)
 	{
 		pthread_mutex_destroy(&table->forks[i]);
 		pthread_mutex_destroy(&table->philos[i].lock);
-		pthread_mutex_destroy(&table->philos[i].first_fork);
-		pthread_mutex_destroy(&table->philos[i].second_fork);
+		pthread_mutex_destroy(&table->forks[i]);
 	}
 	pthread_mutex_destroy(&table->print);
 	pthread_mutex_destroy(&table->lock);

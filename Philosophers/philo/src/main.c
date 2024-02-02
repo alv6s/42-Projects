@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:22 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 19:15:34 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/02 21:22:49 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int    ft_philo_init(t_table *table)
         table->philos[i].meal_count = 0;
         table->philos[i].table = table;
         table->philos[i].last_meal = 0;
-        table->philos[i].time_left = table->death_time;
-        table->philos[i].first_fork = table->forks[(i + 1) % table->nb_philo];
-        table->philos[i].second_fork = table->forks[i];
+        table->philos[i].time_left = table->death_time + get_time();
+        table->philos[i].first_fork = (i + 1) % table->nb_philo;
+        table->philos[i].second_fork = i;
         if (table->philos[i].id % 2 == 0)
         {
-            table->philos[i].first_fork = table->forks[i];
-            table->philos[i].second_fork = table->forks[(i + 1) % table->nb_philo];
+            table->philos[i].first_fork = i;
+            table->philos[i].second_fork = (i + 1) % table->nb_philo;
         }
         pthread_mutex_init(&table->philos[i].lock, NULL);
         i++;
