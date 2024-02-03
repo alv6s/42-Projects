@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:41:18 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 20:30:09 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:05:52 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_philo
     int                         time_left;
     int                     first_fork;
     int                      second_fork;
-    pthread_mutex_t   lock;
+    pthread_mutex_t   personal_lock;
     struct s_table   *table;
 }                 t_philo;
 
@@ -59,7 +59,7 @@ void take_forks(t_philo *philo);
 int eat(t_philo *philo);
 bool    check_input(int ac, char **av);
 
-suseconds_t	get_time(void);
+int	get_time(void);
 int	ft_usleep(int time);
 int	print_message(char *str, t_philo *philo);
 int ft_atoi(const char *str);

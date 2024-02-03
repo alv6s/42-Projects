@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 15:45:00 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/22 13:48:24 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:34:29 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	free_game(t_game *game)
 		}
 	}
 }
-
 
 int	ft_error_exit(t_game *game, char *msg, int fd)
 {

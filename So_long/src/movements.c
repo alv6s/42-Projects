@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 15:09:30 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/22 13:11:32 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:37:37 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_open_exit(t_game *game)
 	}
 }
 
-static void ft_above_exit(t_game *game, int x, int y, int flag)
+static void	ft_above_exit(t_game *game, int x, int y, int flag)
 {
 	if (flag == 1)
 	{
@@ -30,7 +30,7 @@ static void ft_above_exit(t_game *game, int x, int y, int flag)
 			game->floor, game->player_x * TILE, game->player_y * TILE);
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->above_exit, x * TILE, y * TILE);
-		if(game->map[game->player_y][game->player_x] == 'P')
+		if (game->map[game->player_y][game->player_x] == 'P')
 			game->map[game->player_y][game->player_x] = '0';
 		game->player_x = x;
 		game->player_y = y;
@@ -47,7 +47,7 @@ static void	ft_render_move(t_game *game, int x, int y)
 	{
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
 			game->floor, game->player_x * TILE, game->player_y * TILE);
-		if(game->map[game->player_y][game->player_x] == 'P')
+		if (game->map[game->player_y][game->player_x] == 'P')
 			game->map[game->player_y][game->player_x] = '0';
 	}
 	else

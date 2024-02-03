@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:22 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 21:22:49 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:05:42 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int    ft_philo_init(t_table *table)
             table->philos[i].first_fork = i;
             table->philos[i].second_fork = (i + 1) % table->nb_philo;
         }
-        pthread_mutex_init(&table->philos[i].lock, NULL);
+        pthread_mutex_init(&table->philos[i].personal_lock, NULL);
         i++;
     }
     return (1);
@@ -88,9 +88,7 @@ int main(int ac, char **av)
                 if(ft_mutexes_init(&table))
                 {
                     if(thread_init(&table))
-                    {
                         ft_exit(&table);
-                    }
                 }
             }     
         }

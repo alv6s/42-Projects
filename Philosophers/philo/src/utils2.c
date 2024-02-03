@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:01:09 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 20:33:05 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:10:11 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ void	ft_exit(t_table *table)
 	while (++i < table->nb_philo)
 	{
 		pthread_mutex_destroy(&table->forks[i]);
-		pthread_mutex_destroy(&table->philos[i].lock);
-		pthread_mutex_destroy(&table->forks[i]);
+		pthread_mutex_destroy(&table->philos[i].personal_lock);
 	}
 	pthread_mutex_destroy(&table->print);
 	pthread_mutex_destroy(&table->lock);

@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 16:14:05 by pevieira          #+#    #+#             */
-/*   Updated: 2023/11/22 11:24:09 by pevieira         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:36:44 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	map_reading(t_game *game, char *file)
 			break ;
 	}
 	close (game->fd);
-	if(!game->map)
-		ft_error_exit(game, "Error\nMap is empty.", 2);;
-	game->cols = map_columns(game->map[0]);	
+	if (!game->map)
+		ft_error_exit(game, "Error\nMap is empty.", 2);
+	game->cols = map_columns(game->map[0]);
 	return (1);
 }
 

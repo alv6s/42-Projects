@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dinner.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
+/*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:15 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/03 11:07:46 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:14:57 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@ int eat(t_philo *philo)
         return (1);
     }
     take_forks(philo);
-    pthread_mutex_lock(&philo->lock);
+    pthread_mutex_lock(&philo->personal_lock);
     philo->eating = true;
     philo->last_meal = get_time();
-    pthread_mutex_unlock(&philo->lock);
-    pthread_mutex_lock(&philo->table->lock);
+    pthread_mutex_unlock(&philo->personal_lock);
+    //pthread_mutex_lock(&philo->table->lock);
     philo->time_left = philo->last_meal + philo->table->death_time;
-    pthread_mutex_unlock(&philo->table->lock);
+    //pthread_mutex_unlock(&philo->table->lock);
     print_message("is eating", philo);
     ft_usleep(philo->table->eat_time);
-    pthread_mutex_lock(&philo->lock);
+    pthread_mutex_lock(&philo->personal_lock);
     philo->eating = false;
     philo->meal_count++;
     if (philo->meal_count == philo->table->nb_meals)
         philo->full = true;
-    pthread_mutex_unlock(&philo->lock);
+    pthread_mutex_unlock(&philo->personal_lock);
     drop_forks(philo);
     return (checker(philo));
 }
