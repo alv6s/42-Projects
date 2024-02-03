@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:15 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 21:46:19 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/03 11:07:46 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void drop_forks(t_philo *philo)
 
 void take_forks(t_philo *philo)
 {
+    //fazer inversao aqui
     pthread_mutex_lock(&philo->table->forks[philo->first_fork]);
     print_message("has taken a fork", philo);
 
     pthread_mutex_lock(&philo->table->forks[philo->second_fork]);
     print_message("has taken a fork", philo);
-
 }
 
 int eat(t_philo *philo)

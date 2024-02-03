@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:38 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/02 21:31:48 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/03 10:25:42 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ bool    check_input(int ac, char **av) //TURBINAR!!!
 	}
     return true;
 }
+
 void	ft_bzero(void *s, size_t n)
 {
 	char	*p;
