@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 16:10:38 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/04 11:21:36 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/04 13:10:02 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool    check_input(int ac, char **av) //TURBINAR!!!
 {
-    if (ac < 5 || ac > 6)
+    if (ac < 5 || ac > 6 || !all_arguments_are_numbers(av))
     {
         error("Error: Wrong format.\nUsage:  \
         ./philo nb_philos dead_time eat_time sleep_time [nb_meals]", NULL);

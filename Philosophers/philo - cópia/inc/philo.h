@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:41:18 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/03 23:11:57 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/04 13:10:48 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdio.h>
 # include <pthread.h>
 # include <sys/time.h>
-
 typedef struct s_philo
 {
     pthread_t           thread;
@@ -87,4 +86,8 @@ void	ft_exit(t_table *table);
 int	error(char *str, t_table *table);
 void	ft_bzero(void *s, size_t n);
 void dinner_monitor(t_table *table);
+
+int	all_arguments_are_numbers(char **argv);
+int	string_is_numeric(char *str);
+int	is_numeric(int count);
 #endif

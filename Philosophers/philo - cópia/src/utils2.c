@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:01:09 by pevieira          #+#    #+#             */
-/*   Updated: 2024/02/03 22:23:12 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/02/04 13:08:31 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,43 @@ int	error(char *str, t_table *table)
 	printf("%s\n", str);
 	if (table)
 		ft_exit(table);
+	return (1);
+}
+
+
+
+int	is_numeric(int count)
+{
+	if (count >= 48 && count <= 57)
+		return (1);
+	else
+		return (0);
+}
+
+int	string_is_numeric(char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (is_numeric(str[i]) == 0)
+			return (0);
+	}
+	return (1);
+}
+
+int	all_arguments_are_numbers(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[++i])
+	{
+		if (string_is_numeric(argv[i]))
+			;
+		else
+			return (0);
+	}
 	return (1);
 }
