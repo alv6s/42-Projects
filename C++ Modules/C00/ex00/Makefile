@@ -5,46 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/19 17:36:16 by pevieira          #+#    #+#              #
-#    Updated: 2024/08/19 10:49:49 by pevieira         ###   ########.fr        #
+#    Created: 2024/10/09 15:34:00 by pevieira          #+#    #+#              #
+#    Updated: 2024/10/09 15:34:13 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OUT = so_long
+NAME = megaphone
+SRC = megaphone.cpp
+OBJ_PATH = obj/
+OBJ = $(addprefix $(OBJ_PATH), $(SRC:.cpp=.o))
+CC = c++
+FLAGS = -Wall -Wextra -Werror -pedantic -std=c++98
 
-SRC = src/main.c src/errors.c src/map.c src/movements.c \
-		src/renders.c src/map_check.c
+all: $(NAME)
 
-OBJS = ${SRC:.c=.o}
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-CC = gcc
-RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -g
-INCLUDE = -I include
-MAKE = make -C
-LIBFT_PATH = libft
-MLX_PATH = mlx
-LIBFT = -L ${LIBFT_PATH} -lft
-MLX	= -L ${MLX_PATH} -lmlx -Ilmlx -lXext -lX11 -lm
-
-.c.o:
-		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
-
-$(OUT): ${OBJS}
-		${MAKE} ${LIBFT_PATH}
-		${MAKE} ${MLX_PATH}
-		${CC} ${OBJS} ${LIBFT} ${MLX} -o ${OUT}
-
-all:	${OUT}
+$(OBJ_PATH)%.o: %.cpp
+	@mkdir -p $(OBJ_PATH)
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-		${MAKE} ${LIBFT_PATH} clean
-		${MAKE} ${MLX_PATH} clean
-		${RM} ${OBJS}
+	rm -rf $(OBJ_PATH)
 
 fclean: clean
-		${MAKE} ${LIBFT_PATH} fclean
-		${RM} ${OUT}
+	rm -f $(NAME)
 
 re: fclean all
 
