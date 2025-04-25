@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 14:23:33 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/13 15:09:37 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:54:21 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class Zombie
 	public:
 		Zombie(std::string name);
 		~Zombie();
-		void speak(void) const;
+		void announce(void) const;
 };
 
-void randomChump_stack(std::string name);
-Zombie* newZombie_heap(std::string name);
+void randomChump(std::string name);
+Zombie*  newZombie(std::string name);
 
 #endif
