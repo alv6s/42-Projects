@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:52:29 by pevieira          #+#    #+#             */
-/*   Updated: 2025/03/13 19:21:25 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/13 14:23:33 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/13 15:09:37 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
+#include <iomanip>
+#include <string>
 #include <iostream>
 
-void upperstring(std::string str)
+class Zombie
 {
-	std::string	upperstring;
-	int	i;
+	private:
+		std::string _name;
+		
+	public:
+		Zombie(std::string name);
+		~Zombie();
+		void speak(void) const;
+};
 
-	i=0;
-	while(str[i])
-	{
-		upperstring += toupper(str[i]);
-		i++;
-	}
-	std::cout << upperstring;
-}
+void randomChump_stack(std::string name);
+Zombie* newZombie_heap(std::string name);
 
-int main(int ac, char **av)
-{
-	int	i;
-	
-	i = 0;
-	if (ac > 1)
-	{
-		while (av[++i])
-			upperstring(av[i]);
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << '\n';
-	return (0);
-}
+#endif

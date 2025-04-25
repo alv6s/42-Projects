@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:52:29 by pevieira          #+#    #+#             */
-/*   Updated: 2025/03/13 19:21:25 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/14 20:10:17 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/14 20:11:45 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
-void upperstring(std::string str)
-{
-	std::string	upperstring;
-	int	i;
-
-	i=0;
-	while(str[i])
-	{
-		upperstring += toupper(str[i]);
-		i++;
-	}
-	std::cout << upperstring;
-}
+#include "harl.hpp"
 
 int main(int ac, char **av)
 {
-	int	i;
-	
-	i = 0;
-	if (ac > 1)
-	{
-		while (av[++i])
-			upperstring(av[i]);
+	Harl harl;
+	if (ac != 2){
+		std::cerr << "Error, please use as follows: " << "./harl <level>" << std::endl;
+		return 1;
 	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << '\n';
+	harl.complain(av[1]);
 	return (0);
 }

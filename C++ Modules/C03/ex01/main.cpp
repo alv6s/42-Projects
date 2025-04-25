@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:52:29 by pevieira          #+#    #+#             */
-/*   Updated: 2025/03/13 19:21:25 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/23 19:14:54 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/24 19:47:31 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "ScavTrap.hpp"
 
-void upperstring(std::string str)
+int main()
 {
-	std::string	upperstring;
-	int	i;
+	ScavTrap voldemort("Voldemort");
+	ScavTrap thor("Thor");
+	ScavTrap voldemort2(voldemort);
+	ScavTrap thor2 = thor;
 
-	i=0;
-	while(str[i])
-	{
-		upperstring += toupper(str[i]);
-		i++;
-	}
-	std::cout << upperstring;
-}
-
-int main(int ac, char **av)
-{
-	int	i;
+	voldemort.attack("Thor");
+	voldemort.takeDamage(3);
+	voldemort.beRepaired(2);
+	thor.attack("Voldemort");
+	thor.takeDamage(100);
 	
-	i = 0;
-	if (ac > 1)
-	{
-		while (av[++i])
-			upperstring(av[i]);
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << '\n';
+	thor.guardGate();
+	voldemort2.guardGate();
+	thor2.guardGate();
 	return (0);
 }

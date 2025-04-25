@@ -6,37 +6,38 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 15:52:29 by pevieira          #+#    #+#             */
-/*   Updated: 2025/03/13 19:21:25 by pevieira         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:55:14 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void upperstring(std::string str)
+std::string	toupper(std::string str)
 {
-	std::string	upperstring;
-	int	i;
+	int 		i;
+	std::string upperStr;
 
-	i=0;
-	while(str[i])
+	i = 0;
+	while(str.length() > 0 && str[i])
 	{
-		upperstring += toupper(str[i]);
+		upperStr += std::toupper(str[i]);
 		i++;
 	}
-	std::cout << upperstring;
+	return (upperStr);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int	i;
-	
+	int			i;
+	std::string	upperStr;
+
 	i = 0;
-	if (ac > 1)
+	while (av[++i])
 	{
-		while (av[++i])
-			upperstring(av[i]);
+		upperStr = toupper(av[i]);
+		std::cout << upperStr;
 	}
-	else
+	if(ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	std::cout << '\n';
 	return (0);

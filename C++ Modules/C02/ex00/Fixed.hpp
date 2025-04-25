@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 15:52:29 by pevieira          #+#    #+#             */
-/*   Updated: 2025/03/13 19:21:25 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/15 19:52:17 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/25 12:52:34 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 
-void upperstring(std::string str)
-{
-	std::string	upperstring;
-	int	i;
+class Fixed{
+	private:
+		static const int _fractionalBits = 8;
+		int _value;
+	public:
+		Fixed();
+		~Fixed();
+		Fixed(Fixed const & copy);
 
-	i=0;
-	while(str[i])
-	{
-		upperstring += toupper(str[i]);
-		i++;
-	}
-	std::cout << upperstring;
-}
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+		Fixed & operator=(Fixed const & copy);
+};
 
-int main(int ac, char **av)
-{
-	int	i;
-	
-	i = 0;
-	if (ac > 1)
-	{
-		while (av[++i])
-			upperstring(av[i]);
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	std::cout << '\n';
-	return (0);
-}
+#endif
