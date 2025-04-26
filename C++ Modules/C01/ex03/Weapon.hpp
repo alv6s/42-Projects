@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:45:25 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/13 17:10:24 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 09:06:50 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Weapon {
 private:
-    std::string type;
+    std::string _type;
 
 public:
     Weapon(const std::string& type);

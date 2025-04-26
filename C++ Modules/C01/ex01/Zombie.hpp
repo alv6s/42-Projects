@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:24:36 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/13 15:26:47 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 08:55:59 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
     Zombie();
     ~Zombie();
     void setName(std::string name);
-    void speak(void);
+    void announce(void);
 };
 
 Zombie* zombieHorde(int N, std::string name);
