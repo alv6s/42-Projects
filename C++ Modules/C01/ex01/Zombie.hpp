@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:24:36 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 08:55:59 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 14:58:55 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <limits>
 
 class Zombie {
 private:

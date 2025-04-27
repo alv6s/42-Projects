@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:57:54 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/21 19:57:56 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 17:33:56 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <iostream>
 #include <cmath>
 
-class Fixed{
+class Fixed
+{
 	private:
 		int _value;
 		const static int _fractionalBits = 8;
@@ -24,15 +25,16 @@ class Fixed{
 		Fixed();
 		Fixed(int const intValue);
 		Fixed(float const floatValue);
-		Fixed(Fixed const & src);
+		Fixed(Fixed const &src);
 		~Fixed();
-		Fixed & operator=(Fixed const & src);
+
+		Fixed &operator=(Fixed const &src);
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		float toFloat( void ) const;
 		int toInt( void ) const;
 };
 
-std::ostream & operator<<(std::ostream & o, Fixed const & src);
+std::ostream &operator<<(std::ostream &o, Fixed const &src);
 
 #endif

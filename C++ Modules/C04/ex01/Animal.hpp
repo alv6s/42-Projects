@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 20:07:40 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 17:49:40 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/27 15:48:38 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/27 18:48:21 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-int main( void )
+#include <iostream>
+#include <string>
+
+class Animal
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	
-  	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-  return 0; 
-}
+	protected:
+		std::string _type;
+	public:
+		Animal(void);
+		Animal(const Animal &src);
+		virtual ~Animal(void);
+		
+		Animal &operator=(const Animal &src);
+		
+		std::string getType(void) const;
+		virtual void makeSound(void) const;
+};
+
+#endif

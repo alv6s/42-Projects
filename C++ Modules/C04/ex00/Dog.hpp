@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 20:07:40 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 17:49:40 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/27 15:48:48 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/27 17:58:47 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-int main( void )
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	
-  	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-  return 0; 
-}
+	public:
+		Dog(void);
+		Dog(const Dog &src);
+		~Dog(void);
+
+		Dog &operator=(const Dog &src);
+		
+		void makeSound(void) const;
+};
+
+#endif

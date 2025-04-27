@@ -6,25 +6,26 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 19:17:40 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 09:23:23 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 15:21:39 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 int	replace_s1_s2(const std::string &filename, const std::string &s1, const std::string &s2)
 {
 	std::string line;
 	size_t	i;
-	std::ifstream inFile(filename);
+	std::ifstream inFile(filename.c_str());
 	if (!inFile.is_open())
 	{
 		std::cerr << "Error opening file!" << std::endl;
 		return (1);
 	}
-	std::ofstream outFile(filename + ".replace");
+	std::ofstream outFile((filename + ".replace").c_str()); 
 	if (!outFile.is_open())
 	{
 		std::cerr << "Error creating replace file!" << std::endl;

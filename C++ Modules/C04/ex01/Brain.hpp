@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 20:07:40 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 17:49:40 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/27 18:49:59 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/27 18:50:30 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-int main( void )
+#include <iostream>
+#include <string>
+
+class Brain
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+	private:
+		std::string ideas[100];
+	public:
+		Brain();
+		Brain(const Brain &src);
+		~Brain();
 	
-  	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-  return 0; 
-}
+		Brain &operator=(const Brain &src);
+	
+		std::string getIdea(int index) const;
+		void setIdea(int index, std::string idea);
+};
+
+#endif

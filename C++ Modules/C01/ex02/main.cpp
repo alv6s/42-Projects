@@ -6,15 +6,15 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:21:04 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 09:00:30 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 15:09:04 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <iostream>
 #include <string>
 
-int main() {
+int main()
+{
 	std::string brain = "HI THIS IS BRAIN";
 	std::string *stringPTR = &brain;
 	std::string &stringREF = brain;

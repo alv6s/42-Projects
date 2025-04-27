@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 20:20:33 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/21 20:21:30 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/26 17:38:52 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <iostream>
 #include <cmath>
 
-class Fixed {
+class Fixed
+{
 	private:
 		int _value;
 		static const int _fractionalBits = 8;
@@ -26,6 +27,7 @@ class Fixed {
 		Fixed(float const floatValue);
 		Fixed(int const intValue);
 		~Fixed();
+
 		int toInt( void ) const;
 		void setRawBits( int const raw );
 		int getRawBits( void ) const;
@@ -35,19 +37,19 @@ class Fixed {
 		Fixed & operator=(Fixed const & src);
 		Fixed operator*(Fixed const & src);
 		Fixed operator-(Fixed const & src);
-		Fixed operator++(int);
 		Fixed operator/(Fixed const & src);
+		Fixed operator++(int);
 		Fixed & operator++();
 		Fixed operator--(int);
 		Fixed & operator--();
-		
-		bool operator>=(Fixed const & src) const;
+	
 		bool operator<(Fixed const & src) const;
 		bool operator>(Fixed const & src) const;
+		bool operator>=(Fixed const & src) const;
 		bool operator<=(Fixed const & src) const;
-		bool operator!=(Fixed const & src) const;
 		bool operator==(Fixed const & src) const;
-
+		bool operator!=(Fixed const & src) const;
+		
 		static Fixed const & max(Fixed const & a, Fixed const & b);
 		static Fixed const & min(Fixed const & a, Fixed const & b);
 		static Fixed & min(Fixed & a, Fixed & b);

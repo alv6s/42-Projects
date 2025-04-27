@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 20:07:40 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 17:49:40 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/27 15:48:43 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/27 16:57:48 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int main( void )
+#include "Animal.hpp"
+
+class Cat:public Animal
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	
-  	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-  return 0; 
-}
+	public:
+		Cat(void);
+		Cat(const Cat &src);
+		~Cat(void);
+		
+		Cat &operator=(const Cat &src);
+		
+		void makeSound(void) const;
+};
+
+#endif

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 20:07:40 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/26 17:49:40 by pevieira         ###   ########.fr       */
+/*   Created: 2025/04/27 15:48:31 by pevieira          #+#    #+#             */
+/*   Updated: 2025/04/27 17:52:13 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-int main( void )
+#include <string>
+#include <iostream>
+
+class WrongAnimal
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	
-  	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-  return 0; 
-}
+	protected:
+		std::string _type;
+	public:
+		WrongAnimal(void);
+		WrongAnimal(const WrongAnimal &src);
+		virtual ~WrongAnimal();
+		
+		WrongAnimal &operator=(const WrongAnimal &src);
+		
+		std::string getType(void) const;
+		void makeSound(void) const;
+};
+
+#endif
