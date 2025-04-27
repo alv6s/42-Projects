@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 19:14:42 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/24 19:38:18 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/27 11:23:30 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& src)
+ClapTrap::ClapTrap(const ClapTrap &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap& src)
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &src)
