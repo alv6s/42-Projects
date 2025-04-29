@@ -6,13 +6,13 @@
 #    By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/27 15:48:54 by pevieira          #+#    #+#              #
-#    Updated: 2025/04/27 15:50:33 by pevieira         ###   ########.fr        #
+#    Updated: 2025/04/29 18:33:03 by pevieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Polymorphism
+NAME = Abstract
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror -std=c++98

@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:48:43 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/27 16:57:48 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:35:27 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat:public Animal
 {
+	private:
+		Brain	*_brain;
 	public:
 		Cat(void);
 		Cat(const Cat &src);
@@ -24,7 +27,9 @@ class Cat:public Animal
 		
 		Cat &operator=(const Cat &src);
 		
+		Brain*	getBrain(void) const;
 		void makeSound(void) const;
 };
 
 #endif
+

@@ -6,7 +6,7 @@
 /*   By: pevieira <pevieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 15:48:52 by pevieira          #+#    #+#             */
-/*   Updated: 2025/04/27 18:20:23 by pevieira         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:00:24 by pevieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,16 @@ int main()
 
     const WrongAnimal* wrongAnimal = new WrongAnimal();
     const WrongAnimal* wrongCat = new WrongCat();
-
+	
     std::cout << wrongCat->getType() << " " << std::endl;
 
     wrongAnimal->makeSound();
     wrongCat->makeSound();
-
+	
+	//std::cout << "\nTest Without Polymorphism:" << std::endl;
+	//WrongCat cat2;
+	//cat2.makeSound();
+	
     delete wrongAnimal;
     delete wrongCat;
 
